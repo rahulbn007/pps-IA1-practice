@@ -19,7 +19,6 @@ Breakpoint 1 at 0x876: file p5original.c, line 27.
 (gdb) r
 Starting program: /home/runner/pps-IA1-practice-4/a.out 
 warning: Error disabling address space randomization: Operation not permitted
-
 Breakpoint 1, main () at p5original.c:27
 27    float n=input(); 
 (gdb) s
