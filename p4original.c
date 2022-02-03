@@ -20,12 +20,13 @@ int sum=0;
     sum+=a[i];
 return sum;
 }
-void out_put(int n,int a[n],int sum){
+void out_put(int n,int a[n],int sum)
+{
   int i;
    for( i=0;i<n-1;i++)
      printf("%d+",a[i]);
    printf("%d is %d",a[i],sum);
-  }
+}
 int main()
 {
   int x,z;
