@@ -1,0 +1,96 @@
+gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x87c: file p7original.c, line 28.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice-4/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p7original.c:28
+28      a=input_chellox();
+(gdb) s
+input_chellox () at p7original.c:8
+8   {
+(gdb) n
+10      printf("Enter the complex number a+bi in the form 'a b'\n");
+(gdb) n
+Enter the complex number a+bi in the form 'a b'
+11      scanf("%f%f",&k.real,&k.imag);
+(gdb) n
+4
+5
+12      return k;
+(gdb) p k.real
+$1 = 4
+(gdb) p k.imag
+$2 = 5
+(gdb) n
+13  }
+(gdb) n
+main () at p7original.c:29
+29      b=input_chellox();
+(gdb) s
+input_chellox () at p7original.c:8
+8   {
+(gdb) n
+10      printf("Enter the complex number a+bi in the form 'a b'\n");
+(gdb) n
+Enter the complex number a+bi in the form 'a b'
+11      scanf("%f%f",&k.real,&k.imag);
+(gdb) n
+5
+4
+12      return k;
+(gdb) p k.real
+$3 = 5
+(gdb) p k.imag
+$4 = 4
+(gdb) n
+13  }
+(gdb) n
+main () at p7original.c:30
+30      c=add_cmplx(a,b);
+(gdb) s
+add_cmplx (a=..., b=...) at p7original.c:17
+17      r.real=a.real+b.real;
+(gdb) n
+18      r.imag=a.imag+b.imag;
+(gdb) n
+19      return r;
+(gdb) n
+20  }
+(gdb) p r.real
+$5 = 9
+(gdb) p r.imag
+$6 = 9
+(gdb) n
+main () at p7original.c:31
+31      output(a,b,c);
+(gdb) s
+output (a=..., b=..., c=...) at p7original.c:23
+23      printf("(%.1f+%.1fi) + (%.1f+%.1fi) is (%.1f+%.1fi)\n",a.real,a.imag,b.real,b.imag,c.real,c.imag);
+(gdb) n
+(4.0+5.0i) + (5.0+4.0i) is (9.0+9.0i)
+24  }
+(gdb) n
+main () at p7original.c:32
+32      return 0;
+(gdb) n
+33  }(gdb) c
+Continuing.
+[Inferior 1 (process 1058) exited normally]
+(gdb) q
